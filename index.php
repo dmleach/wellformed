@@ -17,7 +17,7 @@ Released   : 20130731
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
-<link href="style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
@@ -38,7 +38,7 @@ Released   : 20130731
 		<li><a href="#" accesskey="5" title="">Contact Us</a></li>
 	</ul>
 </div>
-<div id="banner" class="container"> <img src="images/pic01.jpg" width="1200" height="500" alt="" /></div>
+<div id="banner" class="container"> <img src="<?php bloginfo('template_directory') ?>/assets/images/pic01.jpg" width="1200" height="500" alt="" /></div>
 <div id="three-column" class="container">
 	<div id="tbox1">
 		<h2>Maecenas luctus</h2>
@@ -58,7 +58,7 @@ Released   : 20130731
 		<div class="title">
 			<h2>Welcome <span class="byline">to our website</span></h2>
 		</div>
-		<a href="#" class="image image-full"><img src="images/pic02.jpg" alt="" /></a>
+		<a href="#" class="image image-full"><img src="<?php bloginfo('template_directory') ?>/assets/images/pic02.jpg" alt="" /></a>
 		<p>This is <strong>WellFormed</strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :) </p>
 	</div>
 	<div id="sidebar">
