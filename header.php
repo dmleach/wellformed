@@ -25,12 +25,12 @@ Released   : 20130731
 	</head>
 	<body>
 		<div id="logo" class="container">
-			<h1><a href="#"><?php bloginfo('name') ?></a></h1>
+			<h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name') ?></a></h1>
 			<p><?php bloginfo('description') ?></p>
 		</div>
 		<div id="menu" class="container">
 			<ul>
-				<li><a href="<?php get_option('home'); ?>" accesskey="1" title="">Home</a></li>
+				<li><a href="<?php echo home_url(); ?>">Home</a></li>
 				 <?php wp_list_categories(array (
 				 	"depth" => 1,
 					"exclude" => "1",
