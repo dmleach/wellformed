@@ -13,7 +13,6 @@ Released   : 20130731
 
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 	<head>
-		<?php wp_head(); ?>
 		<title><?php bloginfo('name'); ?> <?php wp_title('-'); ?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="keywords" content="" />
@@ -22,6 +21,7 @@ Released   : 20130731
 		<link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet" type="text/css" media="all" />
 		<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" /><link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+		<?php wp_head(); ?>
 	</head>
 	<body>
 		<div id="logo" class="container">
