@@ -31,14 +31,16 @@ Released   : 20130731
 		<div id="menu" class="container">
 			<ul>
 				<li><a href="<?php echo home_url(); ?>">Home</a></li>
-				 <?php wp_list_categories(array (
-				 	"depth" => 1,
-					"exclude" => "1",
-				 	"hide_empty" => 0,
-					"orderby" => "ID",
-					"show_option_none" => "",
-					"title_li" => "",
-					"use_desc_for_title" => 0)
-				); ?>
+				 <?php
+				 	wp_list_categories(array (
+					 	"depth" => 1,
+						"exclude" => "1",
+					 	"hide_empty" => 0,
+						"orderby" => "ID",
+						"show_option_none" => "",
+						"title_li" => "",
+						"use_desc_for_title" => 0
+					));
+				?>
 			</ul>
 		</div>
