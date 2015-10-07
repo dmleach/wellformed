@@ -1,50 +1,84 @@
-<?php get_header(); ?>
+<?php
 
-<div id="banner" class="container">
-    <?php
+namespace dmleach\wellformed;
+
+class FrontPage
+{
+    public function computeBannerHtml()
+    {
+        $Html = "<div id='banner' class='container'>";
+
         /* Find the pages with the name front-page-banner (there should only
            be one */
-        $BannerQuery = new WP_Query(array (
+        $BannerQuery = new \WP_Query(array (
             "pagename" => "front-page-banner"
         ));
 
-        /* If such a page was found, display its attachment */
+        /* If such a page was found, get its attachment */
         if ($BannerQuery->have_posts()) {
             $BannerQuery->the_post();
-            echo wp_get_attachment_image($BannerQuery->the_ID(), "full");
-        }
-    ?>
-</div>
-
-<div id='three-column' class='container'>
-    <?php
-        function filterEpisodesPosts($Query) {
-            if ($Query->is_home()) {
-                $Query->set("category_name", "Episodes");
-            }
+            $Html .= wp_get_attachment_image($BannerQuery->the_ID(), "full");
         }
 
-        add_action("pre_get_posts", "filterEpisodesPosts");
+        $Html .= "<div id='banner' class='container'>";
+
+        wp_reset_postdata();
+
+        return $Html;
+    }
+
+    public function computeEpisodesHtml()
+    {
+        $Html = "<div id='three-column' class='container'>";
+
+        /* Find the three newest pages in the Episodes category */
+        $EpisodesQuery = new \WP_Query(array (
+            "category_name"  => "Episodes",
+            "order"          => "DESC",
+            "orderby"        => "date",
+            "post_status"    => "publish",
+            "post_type"      => "post",
+            "posts_per_page" => 3
+        ));
 
         $idxPost = 0;
 
-        while (have_posts()) {
-            the_post();
+        while ($EpisodesQuery->have_posts()) {
+            $EpisodesQuery->the_post();
             $idxPost++;
-            $PostTitle = get_the_title();
-            $PostExcerpt = get_the_excerpt();
-            $PostLink = get_permalink();
-
-            echo "
+            $Title = the_title('', '', false);
+            $Excerpt = get_the_excerpt();
+            $Permalink = get_permalink($EpisodesQuery->the_ID());
+            $Html .= "
                 <div id='tbox{$idxPost}'>
-                    <h2>{$PostTitle}</h2>
-                    <p>{$PostExcerpt}</p>
-                    <a href='{$PostLink}' class='button'>Read and listen</a>
+                    <h2>{$Title}</h2>
+                    <p>{$Excerpt}</p>
+                    <a href='{$Permalink}' class='button'>Read and listen</a>
                 </div>
             ";
         }
-    ?>
-</div>
+
+        $Html .= "</div>";
+
+        wp_reset_postdata();
+
+        return $Html;
+    }
+}
+
+/**** SCRIPT EXECUTION BEGINS HERE ********************************************/
+
+/* This WordPress function brings in the content of header.php */
+get_header();
+
+$FrontPage = new FrontPage();
+echo $FrontPage->computeBannerHtml();
+echo $FrontPage->computeEpisodesHtml();
+
+?>
+
+
+
 
 
 
