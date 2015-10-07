@@ -29,18 +29,10 @@ Released   : 20130731
 			<p><?php bloginfo('description') ?></p>
 		</div>
 		<div id="menu" class="container">
-			<ul>
-				<li><a href="<?php echo home_url(); ?>">Home</a></li>
-				 <?php
-				 	wp_list_categories(array (
-					 	"depth" => 1,
-						"exclude" => "1",
-					 	"hide_empty" => 0,
-						"orderby" => "ID",
-						"show_option_none" => "",
-						"title_li" => "",
-						"use_desc_for_title" => 0
-					));
-				?>
-			</ul>
+			<?php
+				/* Place the main menu here. Code in functions.php works with
+				   this call to allow customization of the menu via the admin
+				   panel */
+				wp_nav_menu(array ("theme_location" => "main-menu"));
+			?>
 		</div>
