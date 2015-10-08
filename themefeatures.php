@@ -24,7 +24,7 @@ class ThemeFeatures {
      *
      * @return void
      */
-    public function addCustomBackground($OverrideValues)
+    public function addCustomBackground($OverrideValues = array ())
     {
         $DefaultValues = array (
             "admin-head-callback"    => "",
@@ -52,7 +52,7 @@ class ThemeFeatures {
      *
      * @return void
      */
-    public function addCustomHeader($OverrideValues)
+    public function addCustomHeader($OverrideValues = array ())
     {
         $DefaultValues = array (
             "admin-head-callback"    => "",
@@ -63,9 +63,9 @@ class ThemeFeatures {
             "flex-width"             => false,
             "header-text"            => true,
             "height"                 => null,
-            "width"                  => null,
             "random-default"         => false,
             "uploads"                => true,
+            "width"                  => null,
             "wp-head-callback"       => ""
         );
 
