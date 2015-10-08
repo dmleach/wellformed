@@ -41,11 +41,13 @@ class FrontPage
         while ($EpisodesQuery->have_posts()) {
             $EpisodesQuery->the_post();
             $idxPost++;
+            $Thumbnail = get_the_post_thumbnail();
             $Title = the_title('', '', false);
             $Excerpt = get_the_excerpt();
             $Permalink = get_permalink($EpisodesQuery->the_ID());
             $Html .= "
                 <div id='tbox{$idxPost}'>
+                    {$Thumbnail}
                     <h2>{$Title}</h2>
                     <p>{$Excerpt}</p>
                     <a href='{$Permalink}' class='button'>Read and listen</a>

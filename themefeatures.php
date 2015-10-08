@@ -86,6 +86,20 @@ class ThemeFeatures {
     }
 
     /**
+     * Enable post thumbnails for the theme
+     *
+     * @param integer $Width Standard width of a post thumbnail image
+     * @param integer $Height Standard height of a post thumbnail image
+     *
+     * @return void
+     */
+    public function addPostThumbnails($Width, $Height)
+    {
+        add_theme_support("post-thumbnails");
+        set_post_thumbnail_size($Width, $Height);
+    }
+
+    /**
      * Register the theme's menus, allowing customization of the menu via the
      * admin panel
      *

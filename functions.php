@@ -13,5 +13,6 @@ $Features->addCustomHeader(array (
     "width" => 1200
 ));
 $Features->addFeedLinks();
+$Features->addPostThumbnails(300, 185);
 $Features->registerMenus(array ("main-menu" => "Main menu"));
 $Features->setContentWidth(1200);
