@@ -2,14 +2,12 @@
 
 namespace dmleach\wellformed;
 
-/* Register the theme's menus, allowing customization of the menu via the admin
-   panel.  */
-function registerMenus()
-{
-    register_nav_menus(array (
-        "main-menu" => "Main menu"
-    ));
-}
+require_once("themefeatures.php");
 
-/* Register these functions to run during initialization */
-add_action("init", "\\dmleach\\wellformed\\registerMenus");
+$Features = new \dmleach\wordpress\themes\ThemeFeatures();
+$Features->addCustomBackground(array (
+    "default-image" => get_bloginfo('template_directory') . "/assets/images/bg01.png"
+));
+$Features->addFeedLinks();
+$Features->registerMenus(array ("main-menu" => "Main menu"));
+$Features->setContentWidth(1200);

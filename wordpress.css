@@ -1,0 +1,21 @@
+/**
+ * Theme Name: Wellformed
+ * Theme URI: https://github.com/dmleach/wellformed
+ * Description: wellformed by templated.co, adapted to a WordPress theme
+ * Author: Dave Leach
+ * Author URI: http://www.daveleach.work
+ *
+ * This theme is licensed under the Creative Commons Attribution 3.0 license:
+ * http://creativecommons.org/licenses/by/3.0/
+ * http://templated.co/license
+ */
+
+/* Recommended for all themes (https://codex.wordpress.org/Content_Width) */
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+    max-width: 100%;
+    height: auto;
+}
