@@ -12,4 +12,6 @@ ThemeFeatures::addAll( array (
     "menus" => array ("main-menu" => "Main menu"),
     "postformats" => array ("audio"),
     "postthumbnails" => array ("width" => 300, "height" => 185),
+    "thememarkup" => array ("caption", "comment-form", "comment-list",
+        "gallery", "search-form")
 ));

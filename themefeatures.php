@@ -25,7 +25,7 @@ class ThemeFeatures {
      *            menus => Array passed to registerMenus
      *            postformats => Array passed to addPostFormats
      *            postthumbnails => Array containing height and width values
-     *                passed to addPostThumbnails     
+     *                passed to addPostThumbnails
      *
      * @return void
      */
@@ -62,6 +62,10 @@ class ThemeFeatures {
                     $Parameters ["postthumbnails"]["height"]
                 );
             }
+        }
+
+        if (array_key_exists("thememarkup", $Parameters)) {
+            ThemeFeatures::addThemeMarkup($Parameters ["thememarkup"]);
         }
     }
 
@@ -152,8 +156,8 @@ class ThemeFeatures {
      * Identifies the formats this theme will support
      *
      * @param array $AllowedFormats An array of strings identifying the formats
-     *        supported by the theme. Possible values are detailed at the link
-     *        below
+     *        supported by the theme. Possible values are detailed on the linked
+     *        page
      *
      * @link https://codex.wordpress.org/Post_Formats
      *
@@ -178,6 +182,26 @@ class ThemeFeatures {
         set_post_thumbnail_size($Width, $Height);
     }
 
+    /**
+     * Enables HTML5 support for the given features
+     *
+     * @param array $Features Array of strings denoting the supported features.
+     *        Valid values are documented on the linked page
+     *
+     * @link https://codex.wordpress.org/Theme_Markup
+     *
+     * @return void
+     */
+    public static function addThemeMarkup($Features)
+    {
+        add_theme_support("html5", $Features);
+    }
+
+    /**
+     * Automatically adds the site's title to the HTML title element
+     *
+     * @return void
+     */
     public static function addTitleTag()
     {
         add_theme_support("title-tag");
