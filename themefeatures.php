@@ -16,6 +16,56 @@ namespace dmleach\wordpress\themes;
 class ThemeFeatures {
 
     /**
+     * Adds all available theme features
+     *
+     * @param array $Parameters Values to be passed to those theme features that
+     *        require them. Possible indices and values are:
+     *            contentwidth => Integer value passed to setContentWidth
+     *            customheader => Array passed to addCustomHeader
+     *            menus => Array passed to registerMenus
+     *            postformats => Array passed to addPostFormats
+     *            postthumbnails => Array containing height and width values
+     *                passed to addPostThumbnails     
+     *
+     * @return void
+     */
+    public static function addAll($Parameters)
+    {
+        ThemeFeatures::addCustomBackground();
+        ThemeFeatures::addEditorStyle();
+        ThemeFeatures::addFeedLinks();
+        ThemeFeatures::addTitleTag();
+
+        if (array_key_exists("contentwidth", $Parameters)) {
+            ThemeFeatures::setContentWidth($Parameters ["contentwidth"]);
+        }
+
+        if (array_key_exists("customheader", $Parameters)) {
+            ThemeFeatures::addCustomHeader($Parameters ["customheader"]);
+        }
+
+        if (array_key_exists("menus", $Parameters)) {
+            ThemeFeatures::registerMenus($Parameters ["menus"]);
+        }
+
+        if (array_key_exists("postformats", $Parameters)) {
+            ThemeFeatures::addPostFormats($Parameters ["postformats"]);
+        }
+
+        if (array_key_exists("postthumbnails", $Parameters)) {
+            if (
+                array_key_exists("height", $Parameters ["postthumbnails"])
+                && array_key_exists("width", $Parameters ["postthumbnails"])
+            ) {
+                ThemeFeatures::addPostThumbnails(
+                    $Parameters ["postthumbnails"]["width"],
+                    $Parameters ["postthumbnails"]["height"]
+                );
+            }
+        }
+    }
+
+    /**
      * Adds a configurable custom background to the theme
      *
      * @param array $OverrideValues An array of values that will be passed to
