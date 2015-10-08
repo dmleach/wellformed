@@ -13,7 +13,6 @@ Released   : 20130731
 
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 	<head>
-		<title><?php bloginfo('name'); ?> <?php wp_title('-'); ?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />

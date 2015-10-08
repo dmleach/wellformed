@@ -14,5 +14,6 @@ ThemeFeatures::addCustomHeader(array (
 ThemeFeatures::addFeedLinks();
 ThemeFeatures::addPostFormats(array ("audio"));
 ThemeFeatures::addPostThumbnails(300, 185);
+ThemeFeatures::addTitleTag();
 ThemeFeatures::registerMenus(array ("main-menu" => "Main menu"));
 ThemeFeatures::setContentWidth(1200);

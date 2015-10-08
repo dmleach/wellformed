@@ -115,6 +115,11 @@ class ThemeFeatures {
         set_post_thumbnail_size($Width, $Height);
     }
 
+    public static function addTitleTag()
+    {
+        add_theme_support("title-tag");
+    }
+
     /**
      * Register the theme's menus, allowing customization of the menu via the
      * admin panel
