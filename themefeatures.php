@@ -76,6 +76,19 @@ class ThemeFeatures {
     }
 
     /**
+     * Adds custom styles that will appear in the post editor
+     *
+     * @param string $CssFile Location of a CSS file containing the custom
+     *        styles
+     *
+     * @return void
+     */
+    public static function addEditorStyle($CssFile = "editor-style.css")
+    {
+        add_editor_style($CssFile);
+    }
+
+    /**
      * Add RSS feeds to the site
      *
      * @return void

@@ -11,6 +11,7 @@ ThemeFeatures::addCustomHeader(array (
     "height" => 500,
     "width" => 1200
 ));
+ThemeFeatures::addEditorStyle();
 ThemeFeatures::addFeedLinks();
 ThemeFeatures::addPostFormats(array ("audio"));
 ThemeFeatures::addPostThumbnails(300, 185);
