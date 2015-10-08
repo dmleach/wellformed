@@ -4,15 +4,15 @@ namespace dmleach\wellformed;
 
 require_once("themefeatures.php");
 
-$TemplateDirectory = get_template_directory_uri();
+use \dmleach\wordpress\themes\ThemeFeatures;
 
-$Features = new \dmleach\wordpress\themes\ThemeFeatures();
-$Features->addCustomBackground();
-$Features->addCustomHeader(array (
+ThemeFeatures::addCustomBackground();
+ThemeFeatures::addCustomHeader(array (
     "height" => 500,
     "width" => 1200
 ));
-$Features->addFeedLinks();
-$Features->addPostThumbnails(300, 185);
-$Features->registerMenus(array ("main-menu" => "Main menu"));
-$Features->setContentWidth(1200);
+ThemeFeatures::addFeedLinks();
+ThemeFeatures::addPostFormats(array ("audio"));
+ThemeFeatures::addPostThumbnails(300, 185);
+ThemeFeatures::registerMenus(array ("main-menu" => "Main menu"));
+ThemeFeatures::setContentWidth(1200);

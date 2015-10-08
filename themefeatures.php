@@ -24,7 +24,7 @@ class ThemeFeatures {
      *
      * @return void
      */
-    public function addCustomBackground($OverrideValues = array ())
+    public static function addCustomBackground($OverrideValues = array ())
     {
         $DefaultValues = array (
             "admin-head-callback"    => "",
@@ -52,7 +52,7 @@ class ThemeFeatures {
      *
      * @return void
      */
-    public function addCustomHeader($OverrideValues = array ())
+    public static function addCustomHeader($OverrideValues = array ())
     {
         $DefaultValues = array (
             "admin-head-callback"    => "",
@@ -80,9 +80,25 @@ class ThemeFeatures {
      *
      * @return void
      */
-    public function addFeedLinks()
+    public static function addFeedLinks()
     {
     	add_theme_support("automatic-feed-links");
+    }
+
+    /**
+     * Identifies the formats this theme will support
+     *
+     * @param array $AllowedFormats An array of strings identifying the formats
+     *        supported by the theme. Possible values are detailed at the link
+     *        below
+     *
+     * @link https://codex.wordpress.org/Post_Formats
+     *
+     * @return void
+     */
+    public static function addPostFormats($AllowedFormats)
+    {
+        add_theme_support("post-formats", $AllowedFormats);
     }
 
     /**
@@ -93,7 +109,7 @@ class ThemeFeatures {
      *
      * @return void
      */
-    public function addPostThumbnails($Width, $Height)
+    public static function addPostThumbnails($Width, $Height)
     {
         add_theme_support("post-thumbnails");
         set_post_thumbnail_size($Width, $Height);
@@ -108,7 +124,7 @@ class ThemeFeatures {
      *
      * @return void
      */
-    public function registerMenus($MenuInfo)
+    public static function registerMenus($MenuInfo)
     {
         register_nav_menus($MenuInfo);
     }
@@ -120,7 +136,7 @@ class ThemeFeatures {
      *
      * @return void
      */
-    public function setContentWidth($Width)
+    public static function setContentWidth($Width)
     {
         if (isset($content_width) == false) {
             $content_width = $Width;
