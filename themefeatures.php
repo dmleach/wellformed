@@ -27,18 +27,50 @@ class ThemeFeatures {
     public function addCustomBackground($OverrideValues)
     {
         $DefaultValues = array (
-        	"default-color"          => "",
+            "admin-head-callback"    => "",
+            "admin-preview-callback" => "",
+            "default-attachment"     => "",
+            "default-color"          => "",
         	"default-image"          => "",
+            "default-position-x"     => "",
         	"default-repeat"         => "",
-        	"default-position-x"     => "",
-        	"default-attachment"     => "",
-        	"wp-head-callback"       => "_custom_background_cb",
-        	"admin-head-callback"    => "",
-        	"admin-preview-callback" => ""
+        	"wp-head-callback"       => "_custom_background_cb"
         );
 
         add_theme_support (
             "custom-background",
+            array_merge($DefaultValues, $OverrideValues)
+        );
+    }
+
+    /**
+     * Adds a configurable custom header to the theme
+     *
+     * @param array $OverrideValues An array of values that will be passed to
+     *        the theme support function. Values in this array will overwrite
+     *        any values in the default array that have the same index
+     *
+     * @return void
+     */
+    public function addCustomHeader($OverrideValues)
+    {
+        $DefaultValues = array (
+            "admin-head-callback"    => "",
+            "admin-preview-callback" => "",
+            "default-image"          => "",
+            "default-text-color"     => "",
+            "flex-height"            => false,
+            "flex-width"             => false,
+            "header-text"            => true,
+            "height"                 => null,
+            "width"                  => null,
+            "random-default"         => false,
+            "uploads"                => true,
+            "wp-head-callback"       => ""
+        );
+
+        add_theme_support(
+            "custom-header",
             array_merge($DefaultValues, $OverrideValues)
         );
     }

@@ -6,23 +6,18 @@ class FrontPage
 {
     public function computeBannerHtml()
     {
-        $Html = "<div id='banner' class='container'>";
+        $Html = "";
+        $CustomHeader = get_custom_header();
 
-        /* Find the pages with the name front-page-banner (there should only
-           be one */
-        $BannerQuery = new \WP_Query(array (
-            "pagename" => "front-page-banner"
-        ));
-
-        /* If such a page was found, get its attachment */
-        if ($BannerQuery->have_posts()) {
-            $BannerQuery->the_post();
-            $Html .= wp_get_attachment_image($BannerQuery->the_ID(), "full");
-        }
-
-        $Html .= "<div id='banner' class='container'>";
-
-        wp_reset_postdata();
+        if ($CustomHeader->url != '') {
+            $Height = ($CustomHeader->height == "" ? "" : " height={$CustomHeader->height}");
+            $Width = ($CustomHeader->width == "" ? "" : "width={$CustomHeader->width}");
+            $Html = "
+                <div id='banner' class='container'>
+                    <img src='{$CustomHeader->url}'{$Height}{$Width} alt=''/>
+                </div>
+            ";
+        };
 
         return $Html;
     }
