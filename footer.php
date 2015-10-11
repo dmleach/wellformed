@@ -1,28 +1,101 @@
-<div id="footer" class="container">
-	<div id="fbox1">
-		<h2 class="title">Praesent mattis</h2>
-		<p>Pellentesque viverra vulputate enim. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. </p>
-		<a href="#" class="button">Learn More</a> </div>
-	<div id="fbox2">
-		<h2 class="title">Praesent condimentum</h2>
-		<ul class="style1">
-			<li class="first"><a href="#">Pellentesque consectetuer gravida blandit.</a></li>
-			<li><a href="#">Lorem consectetuer adipiscing elit.</a></li>
-			<li><a href="#">Maecenas vitae vitae feugiat eleifend.</a></li>
-		</ul>
-		<a href="#" class="button">Learn More</a> </div>
-	<div id="fbox3">
-		<h2 class="title">Social</h2>
-		<ul class="style1">
-			<li class="first"><a href="#">Twitter</a></li>
-			<li><a href="#">Facebook</a></li>
-			<li><a href="#">Flickr</a></li>
-			<li><a href="#">Google +</a></li>
-		</ul>
-	</div>
-</div>
-<div id="copyright" class="container">
-	<p>&copy; Untitled. All rights reserved. | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
-</div>
-</body>
-</html>
+<?php
+
+namespace dmleach\wellformed;
+
+class Footer
+{
+	public function computeWelcomeHtml()
+	{
+		$Html = "<div id='fbox1'>";
+
+		$WelcomeQuery = new \WP_Query(array (
+			"name"           => "welcome",
+			"post_type"      => "page",
+			"post_status"    => "publish",
+			"posts_per_page" => 1
+		));
+
+		if ($WelcomeQuery->have_posts()) {
+			$WelcomeQuery->the_post();
+			$Title = the_title('', '', false);
+			$Content = get_the_content();
+			$Html .= "
+				<div id='content'>
+					<div class='title'>
+						<h2>{$Title}</h2>
+					</div>
+					<p>{$Content}</p>
+				</div>
+			";
+		}
+
+		$Html .= "</div>";
+
+		return $Html;
+	}
+
+	public function computeSocialHtml()
+	{
+		$Html = "<div id='fbox3'>";
+
+		$SocialMediaQuery = new \WP_Query(array (
+			"name"           => "social-media",
+			"post_type"      => "page",
+			"post_status"    => "publish",
+			"posts_per_page" => 1
+		));
+
+		if ($SocialMediaQuery->have_posts()) {
+			$SocialMediaQuery->the_post();
+			$Title = the_title('', '', false);
+			$Content = get_the_content();
+			$Html .= "
+				<div id='content'>
+					<div class='title'>
+						<h2>{$Title}</h2>
+					</div>
+					{$Content}
+				</div>
+			";
+		}
+
+		$Html .= "</div>";
+
+		return $Html;
+	}
+
+	public function computeCopyrightHtml()
+	{
+		$Html = "<div id='copyright' class='container'>";
+
+		$CopyrightQuery = new \WP_Query(array (
+			"name"           => "copyright",
+			"post_type"      => "page",
+			"post_status"    => "publish",
+			"posts_per_page" => 1
+		));
+
+		if ($CopyrightQuery->have_posts()) {
+			$CopyrightQuery->the_post();
+			$Html .= get_the_content();
+		}
+
+		$Html .= "</div>";
+
+		return $Html;
+	}
+}
+
+/**** SCRIPT EXECUTION BEGINS HERE ********************************************/
+echo "<div id='footer' class='container'>";
+
+$Footer = new Footer();
+echo $Footer->computeWelcomeHtml();
+echo $Footer->computeSocialHtml();
+
+echo "</div>";
+
+echo $Footer->computeCopyrightHtml();
+
+echo "</body>";
+echo "</html>";
