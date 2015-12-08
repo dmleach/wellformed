@@ -1,0 +1,9 @@
+{% block head %}
+    <meta charset='{{ html.charset|raw }}'>
+    <meta name='description' content='{{ html.description|raw }}' />
+    <meta name='keywords' content='{{ html.keywords|raw }}' />
+
+    {% for stylesheet in html.stylesheets %}
+    <link href='{{ stylesheet|raw }}' rel='stylesheet' type='text/css'>
+    {% endfor %}
+{% endblock %}

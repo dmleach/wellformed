@@ -1,0 +1,13 @@
+{% block header %}
+    <section id='logo'>
+        <div class="container">
+            <h1><a href="{{ url.home|raw }}">{{ site.name|raw }}</a></h1>
+            <p>{{ site.description|raw }}</p>
+        </div>
+    </section>
+    <section id='menu'>
+        <div class="container">
+            {{ wp_nav_menu({'theme_location': 'main-menu'}) }}
+        </div>
+    </section>
+{% endblock %}
