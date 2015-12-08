@@ -1,0 +1,8 @@
+{
+    "require": {
+        "twig/twig": "^1.23",
+        "umpirsky/twig-php-function": "dev-master"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
