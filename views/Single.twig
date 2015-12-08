@@ -1,0 +1,27 @@
+{% extends 'Template.twig' %}
+
+{% block main %}
+    <div id="banner" class="container">
+        {% if posts[0].banner.filepath is defined and not posts[0].banner.filepath is empty %}
+            <img src='{{ posts[0].banner.filepath }}' alt='' />
+        {% endif %}
+    </div>
+    <div id="page" class="container">
+    	<div id="episode-name">
+    		<h2>{{ posts[0].title }}</h2>
+    	</div>
+        <div id="episode-description">
+            {% if posts[0].content is defined and not posts[0].content is empty %}
+                {{ posts[0].content|raw }}
+            {% endif %}
+        </div>
+        <div id="episode-audio">
+	         <audio controls>
+                 <!-- <source src="Soundscape%202.24%20Terra%20Mystica.mp3" type="audio/mpeg"> -->
+             </audio>
+             <p class="instructions">
+                 Please give the audio file a short time to load into the player, <br>or <a href="Soundscape%202.24%20Terra%20Mystica.mp3" download>click here </a>to download the episode.
+             </p>
+         </div>
+    </div>
+{% endblock %}
