@@ -1,0 +1,35 @@
+{% extends 'Template.twig' %}
+
+{% block main %}
+    <section id='banner'>
+        <div class='container'>
+            <img src='{{ images.banner.filepath }}' alt='' />
+        </div>
+    </section>
+    <section id='links'>
+        <div id='three-column' class='container'>
+            {% for link in links %}
+                <div id='tbox{{ loop.index }}'>
+                    {% if link.image is defined and not link.image is empty %}
+                        <img class='episode-image' src='{{ link.image }}' alt='' />
+                    {% endif %}
+                    <h2>{{ link.title }}</h2>
+                    {% if link.excerpt is defined and not link.excerpt is empty %}
+                        <p>{{ link.excerpt }}</p>
+                    {% endif %}
+                    <a href='{{ link.url }}' class="button">Read and listen</a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <section id='page'>
+        {% for article in articles %}
+            <article id='content'>
+                <div class='title'>
+                    <h2>{{ article.title }}</h2>
+                </div>
+                {{ article.content|raw }}
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}
