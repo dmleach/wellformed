@@ -1,0 +1,95 @@
+.episode-image
+{
+    width: 100%;
+}
+
+/*********************************************************************************/
+/* Episode description                                                           */
+/*********************************************************************************/
+
+	#episode-description
+	{
+		float: left;
+		padding-right: 5%;
+		width: 35%;
+	}
+
+	#episode-description p
+	{
+		overflow: hidden;
+	}
+
+	#episode-description p.audio-instructions
+	{
+		font-size: 0.75em;
+		text-align: left;
+	}
+
+/*********************************************************************************/
+/* Episode audio                                                                 */
+/*********************************************************************************/
+
+	#episode-audio
+	{
+		float: left;
+		padding-right: 5%;
+		width: 35%;
+	}
+
+	#episode-audio p
+	{
+		overflow: hidden;
+	}
+
+	#episode-audio p.instructions
+	{
+		font-size: 0.75em;
+		text-align: right;
+	}
+
+		#episode-audio audio
+	{
+		width: 100%;
+	}
+
+/*********************************************************************************/
+/* Episode songlist                                                              */
+/*********************************************************************************/
+
+	.episode-songlist
+	{
+		float: right;
+		width: 60%;
+	}
+
+	.episode-songlist h3 {
+		padding-top: 25px;
+	}
+
+	.episode-songlist ul {
+		margin: 0px;
+		padding: 0px;
+		list-style: none;
+	}
+
+	.episode-songlist li {
+		border-top: 1px solid #363636;
+		padding: 10px 0px 10px 0px;
+	}
+
+	.episode-songlist .artist {
+		padding-right: 10px;
+	}
+
+    .episode-songlist .artist:after {
+		content: ": "
+	}
+
+	.episode-songlist .song {
+		font-style: italic;
+	}
+
+	.episode-songlist li.first {
+		padding-top: 0px;
+		border-top: none;
+	}
